@@ -1,0 +1,4 @@
+io\testkit\mock\ManagedMockServer.class
+io\testkit\mock\MockBuilder$StubBuilder.class
+io\testkit\mock\MockStep.class
+io\testkit\mock\MockBuilder.class

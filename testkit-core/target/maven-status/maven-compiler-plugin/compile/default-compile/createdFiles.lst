@@ -1,0 +1,17 @@
+io\testkit\core\report\ConsoleReporter$1.class
+io\testkit\core\TestKitConfig.class
+io\testkit\core\TestKitRunner.class
+io\testkit\core\StepResult.class
+io\testkit\core\report\TestKitReporter.class
+io\testkit\core\TestKit.class
+io\testkit\core\TestKitConfig$Builder.class
+io\testkit\core\StepResult$Status.class
+io\testkit\core\TestKitStep.class
+io\testkit\core\junit\TestKitExtension.class
+io\testkit\core\TestKitException.class
+io\testkit\core\report\JsonReporter.class
+io\testkit\core\report\ConsoleReporter.class
+io\testkit\core\junit\TestKitExtension$TestKitTest.class
+io\testkit\core\StepResult$Builder.class
+io\testkit\core\TestKitContext.class
+io\testkit\core\TestKitResult.class

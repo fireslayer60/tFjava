@@ -1,0 +1,5 @@
+io\testkit\contract\Contract.class
+io\testkit\contract\ContractBuilder.class
+io\testkit\contract\Contract$ContractRequest.class
+io\testkit\contract\Contract$ContractResponse.class
+io\testkit\contract\ContractStep.class

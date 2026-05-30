@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\krish\\\\OneDrive\\\\Desktop\\\\java\\\\tFjava\" -Recurse -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "Bash(mvn -version)",
+      "Bash(mvn -pl testkit-core test)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\krish\\\\OneDrive\\\\Desktop\\\\java\\\\tFjava\\\\testkit-core\\\\src\\\\main\\\\java\\\\io\\\\testkit\\\\TestKitDsl.java\")",
+      "Bash(mvn install *)",
+      "Bash(mvn test *)",
+      "Bash(mvn dependency:tree -pl testkit-mock)",
+      "Bash(mkdir -p \"c:/Users/krish/OneDrive/Desktop/java/tFjava/testkit-all/src/test/resources\")",
+      "Bash(mvn dependency:tree -pl testkit-all)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\krish\\OneDrive\\Desktop\\java\\tFjava\\testkit-all\\src\\test"
+    ]
+  }
+}

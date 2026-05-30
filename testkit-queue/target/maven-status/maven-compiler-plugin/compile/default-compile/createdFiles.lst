@@ -1,0 +1,6 @@
+io\testkit\queue\RabbitTestClient.class
+io\testkit\queue\KafkaTestClient.class
+io\testkit\queue\QueueBuilder.class
+io\testkit\queue\QueueMessage.class
+io\testkit\queue\QueueStep.class
+io\testkit\queue\QueueBuilder$QueueOperation.class

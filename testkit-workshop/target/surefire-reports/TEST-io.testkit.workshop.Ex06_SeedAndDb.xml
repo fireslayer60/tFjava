@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.testkit.workshop.Ex06_SeedAndDb" time="0.811" tests="6" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\krish\OneDrive\Desktop\java\tFjava\testkit-workshop\target\test-classes;C:\Users\krish\OneDrive\Desktop\java\tFjava\testkit-workshop\target\classes;C:\Users\krish\.m2\repository\io\testkit\testkit-core\0.1.0-SNAPSHOT\testkit-core-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.0\jackson-databind-2.17.0.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.0\jackson-annotations-2.17.0.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.0\jackson-core-2.17.0.jar;C:\Users\krish\.m2\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;C:\Users\krish\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-api\0.1.0-SNAPSHOT\testkit-api-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\com\squareup\okhttp3\okhttp\4.12.0\okhttp-4.12.0.jar;C:\Users\krish\.m2\repository\com\squareup\okio\okio\3.6.0\okio-3.6.0.jar;C:\Users\krish\.m2\repository\com\squareup\okio\okio-jvm\3.6.0\okio-jvm-3.6.0.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.9.23\kotlin-stdlib-common-1.9.23.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.9.23\kotlin-stdlib-jdk8-1.9.23.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.9.23\kotlin-stdlib-1.9.23.jar;C:\Users\krish\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.9.23\kotlin-stdlib-jdk7-1.9.23.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.0\jackson-datatype-jsr310-2.17.0.jar;C:\Users\krish\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\krish\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\krish\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\krish\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\krish\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-mock\0.1.0-SNAPSHOT\testkit-mock-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\wiremock\wiremock\3.5.4\wiremock-3.5.4.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-server\11.0.20\jetty-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-http\11.0.20\jetty-http-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-io\11.0.20\jetty-io-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\toolchain\jetty-jakarta-servlet-api\5.0.2\jetty-jakarta-servlet-api-5.0.2.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-servlet\11.0.20\jetty-servlet-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-security\11.0.20\jetty-security-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-servlets\11.0.20\jetty-servlets-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-util\11.0.20\jetty-util-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-webapp\11.0.20\jetty-webapp-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-xml\11.0.20\jetty-xml-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-proxy\11.0.20\jetty-proxy-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-client\11.0.20\jetty-client-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\http2\http2-server\11.0.20\http2-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\http2\http2-common\11.0.20\http2-common-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\http2\http2-hpack\11.0.20\http2-hpack-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-server\11.0.20\jetty-alpn-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-java-server\11.0.20\jetty-alpn-java-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-java-client\11.0.20\jetty-alpn-java-client-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-client\11.0.20\jetty-alpn-client-11.0.20.jar;C:\Users\krish\.m2\repository\com\google\guava\guava\33.1.0-jre\guava-33.1.0-jre.jar;C:\Users\krish\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\krish\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\krish\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\krish\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\krish\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\krish\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.3\httpclient5-5.2.3.jar;C:\Users\krish\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2.4\httpcore5-5.2.4.jar;C:\Users\krish\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2.4\httpcore5-h2-5.2.4.jar;C:\Users\krish\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\krish\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\krish\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\krish\.m2\repository\org\xmlunit\xmlunit-legacy\2.9.1\xmlunit-legacy-2.9.1.jar;C:\Users\krish\.m2\repository\org\xmlunit\xmlunit-placeholders\2.9.1\xmlunit-placeholders-2.9.1.jar;C:\Users\krish\.m2\repository\net\javacrumbs\json-unit\json-unit-core\2.38.0\json-unit-core-2.38.0.jar;C:\Users\krish\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;C:\Users\krish\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\krish\.m2\repository\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\krish\.m2\repository\com\github\jknack\handlebars\4.3.1\handlebars-4.3.1.jar;C:\Users\krish\.m2\repository\com\github\jknack\handlebars-helpers\4.3.1\handlebars-helpers-4.3.1.jar;C:\Users\krish\.m2\repository\commons-fileupload\commons-fileupload\1.5\commons-fileupload-1.5.jar;C:\Users\krish\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\krish\.m2\repository\com\networknt\json-schema-validator\1.4.0\json-schema-validator-1.4.0.jar;C:\Users\krish\.m2\repository\com\ethlo\time\itu\1.8.0\itu-1.8.0.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-load\0.1.0-SNAPSHOT\testkit-load-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-security\0.1.0-SNAPSHOT\testkit-security-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-contract\0.1.0-SNAPSHOT\testkit-contract-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-seed\0.1.0-SNAPSHOT\testkit-seed-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\krish\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\krish\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\krish\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\krish\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\krish\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-db\0.1.0-SNAPSHOT\testkit-db-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\krish\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\krish\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\krish\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\krish\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\krish\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\krish\.m2\repository\ch\qos\logback\logback-classic\1.5.3\logback-classic-1.5.3.jar;C:\Users\krish\.m2\repository\ch\qos\logback\logback-core\1.5.3\logback-core-1.5.3.jar;C:\Users\krish\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
+    <property name="sun.java.command" value="C:\Users\krish\AppData\Local\Temp\surefire13057421780470580827\surefirebooter-20260530235909551_3.jar C:\Users\krish\AppData\Local\Temp\surefire13057421780470580827 2026-05-30T23-59-09_454-jvmRun1 surefire-20260530235909551_1tmp surefire_0-20260530235909551_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\krish\OneDrive\Desktop\java\tFjava\testkit-workshop\target\test-classes;C:\Users\krish\OneDrive\Desktop\java\tFjava\testkit-workshop\target\classes;C:\Users\krish\.m2\repository\io\testkit\testkit-core\0.1.0-SNAPSHOT\testkit-core-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.0\jackson-databind-2.17.0.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.0\jackson-annotations-2.17.0.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.0\jackson-core-2.17.0.jar;C:\Users\krish\.m2\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;C:\Users\krish\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-api\0.1.0-SNAPSHOT\testkit-api-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\com\squareup\okhttp3\okhttp\4.12.0\okhttp-4.12.0.jar;C:\Users\krish\.m2\repository\com\squareup\okio\okio\3.6.0\okio-3.6.0.jar;C:\Users\krish\.m2\repository\com\squareup\okio\okio-jvm\3.6.0\okio-jvm-3.6.0.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.9.23\kotlin-stdlib-common-1.9.23.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.9.23\kotlin-stdlib-jdk8-1.9.23.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.9.23\kotlin-stdlib-1.9.23.jar;C:\Users\krish\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\krish\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.9.23\kotlin-stdlib-jdk7-1.9.23.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.0\jackson-datatype-jsr310-2.17.0.jar;C:\Users\krish\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\krish\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\krish\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\krish\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\krish\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-mock\0.1.0-SNAPSHOT\testkit-mock-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\wiremock\wiremock\3.5.4\wiremock-3.5.4.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-server\11.0.20\jetty-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-http\11.0.20\jetty-http-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-io\11.0.20\jetty-io-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\toolchain\jetty-jakarta-servlet-api\5.0.2\jetty-jakarta-servlet-api-5.0.2.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-servlet\11.0.20\jetty-servlet-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-security\11.0.20\jetty-security-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-servlets\11.0.20\jetty-servlets-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-util\11.0.20\jetty-util-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-webapp\11.0.20\jetty-webapp-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-xml\11.0.20\jetty-xml-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-proxy\11.0.20\jetty-proxy-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-client\11.0.20\jetty-client-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\http2\http2-server\11.0.20\http2-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\http2\http2-common\11.0.20\http2-common-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\http2\http2-hpack\11.0.20\http2-hpack-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-server\11.0.20\jetty-alpn-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-java-server\11.0.20\jetty-alpn-java-server-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-java-client\11.0.20\jetty-alpn-java-client-11.0.20.jar;C:\Users\krish\.m2\repository\org\eclipse\jetty\jetty-alpn-client\11.0.20\jetty-alpn-client-11.0.20.jar;C:\Users\krish\.m2\repository\com\google\guava\guava\33.1.0-jre\guava-33.1.0-jre.jar;C:\Users\krish\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\krish\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\krish\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\krish\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\krish\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\krish\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.3\httpclient5-5.2.3.jar;C:\Users\krish\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2.4\httpcore5-5.2.4.jar;C:\Users\krish\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2.4\httpcore5-h2-5.2.4.jar;C:\Users\krish\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\krish\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\krish\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\krish\.m2\repository\org\xmlunit\xmlunit-legacy\2.9.1\xmlunit-legacy-2.9.1.jar;C:\Users\krish\.m2\repository\org\xmlunit\xmlunit-placeholders\2.9.1\xmlunit-placeholders-2.9.1.jar;C:\Users\krish\.m2\repository\net\javacrumbs\json-unit\json-unit-core\2.38.0\json-unit-core-2.38.0.jar;C:\Users\krish\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;C:\Users\krish\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\krish\.m2\repository\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\krish\.m2\repository\com\github\jknack\handlebars\4.3.1\handlebars-4.3.1.jar;C:\Users\krish\.m2\repository\com\github\jknack\handlebars-helpers\4.3.1\handlebars-helpers-4.3.1.jar;C:\Users\krish\.m2\repository\commons-fileupload\commons-fileupload\1.5\commons-fileupload-1.5.jar;C:\Users\krish\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\krish\.m2\repository\com\networknt\json-schema-validator\1.4.0\json-schema-validator-1.4.0.jar;C:\Users\krish\.m2\repository\com\ethlo\time\itu\1.8.0\itu-1.8.0.jar;C:\Users\krish\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-load\0.1.0-SNAPSHOT\testkit-load-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-security\0.1.0-SNAPSHOT\testkit-security-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-contract\0.1.0-SNAPSHOT\testkit-contract-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-seed\0.1.0-SNAPSHOT\testkit-seed-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\krish\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\krish\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\krish\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\krish\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\krish\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\krish\.m2\repository\io\testkit\testkit-db\0.1.0-SNAPSHOT\testkit-db-0.1.0-SNAPSHOT.jar;C:\Users\krish\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\krish\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\krish\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\krish\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\krish\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\krish\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\krish\.m2\repository\ch\qos\logback\logback-classic\1.5.3\logback-classic-1.5.3.jar;C:\Users\krish\.m2\repository\ch\qos\logback\logback-core\1.5.3\logback-core-1.5.3.jar;C:\Users\krish\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\krish"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\krish\OneDrive\Desktop\java\tFjava\testkit-workshop"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\krish\AppData\Local\Temp\surefire13057421780470580827\surefirebooter-20260530235909551_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="org.eclipse.jetty.http.HttpGenerator.STRICT" value="true"/>
+    <property name="java.runtime.version" value="21.0.7+8-LTS-245"/>
+    <property name="user.name" value="krish"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\krish\.m2\repository"/>
+    <property name="javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom" value="com.sun.org.apache.xpath.internal.jaxp.XPathFactoryImpl"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="jetty.git.hash" value="922f8dc188f7011e60d0361de585fd4ac4d63064"/>
+    <property name="java.io.tmpdir" value="C:\Users\krish\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="21.0.7"/>
+    <property name="user.dir" value="C:\Users\krish\OneDrive\Desktop\java\tFjava\testkit-workshop"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;c:\Users\krish\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\krish\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files\glzr.io\GlazeWM\\cli;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\libnvvp;C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.2.0\;C:\Program Files\Go\bin;C:\Users\krish\customization\yasb\;C:\Program Files\glzr.io\Zebar\;C:\Program Files\WezTerm;C:\Program Files\starship\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Users\krish\.cargo\bin;C:\Users\krish\scoop\apps\maven\current\bin;C:\Users\krish\scoop\shims;D:\Python310\Scripts\;D:\Python310\;C:\Users\krish\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\krish\AppData\Local\Programs\Python\Python313\;C:\Users\krish\AppData\Local\Microsoft\WindowsApps;C:\Users\krish\AppData\Roaming\npm;C:\Users\krish\AppData\Local\GitHubDesktop\bin;C:\Users\krish\go\bin;C:\Users\krish\AppData\Local\Programs\garyttierney\me3\bin;C:\Users\krish\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Users\krish\.cargo\bin;C:\Users\krish\scoop\apps\maven\current\bin;C:\Users\krish\scoop\shims;D:\Python310\Scripts\;D:\Python310\;C:\Users\krish\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\krish\AppData\Local\Programs\Python\Python313\;C:\Users\krish\AppData\Local\Microsoft\WindowsApps;C:\Users\krish\AppData\Local\GitHubDesktop\bin;C:\Users\krish\go\bin;C:\Users\krish\AppData\Local\Programs\garyttierney\me3\bin;C:\Users\krish\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\krish\AppData\Local\Programs\Ollama;C:\Users\krish\AppData\Roaming\npm;C:\Users\krish\.local\bin;c:\Users\krish\.vscode\extensions\vscjava.vscode-java-debug-0.59.0\bundled\scripts\noConfigScripts;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.7+8-LTS-245"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="javax.xml.transform.TransformerFactory" value="com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="seedBuilderInsertsRowsViaJdbc" classname="io.testkit.workshop.Ex06_SeedAndDb" time="0.306">
+    <system-out><![CDATA[23:59:35.909 [main] DEBUG com.zaxxer.hikari.HikariConfig -- HikariPool-1 - configuration:
+23:59:35.913 [main] DEBUG com.zaxxer.hikari.HikariConfig -- allowPoolSuspension.............false
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- autoCommit......................true
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- catalog.........................none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionInitSql...............none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionTestQuery.............none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionTimeout...............30000
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSource......................none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceClassName.............none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceJNDI..................none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceProperties............{password=<masked>}
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- driverClassName.................none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- exceptionOverrideClassName......none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- healthCheckProperties...........{}
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- healthCheckRegistry.............none
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- idleTimeout.....................600000
+23:59:35.914 [main] DEBUG com.zaxxer.hikari.HikariConfig -- initializationFailTimeout.......1
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- isolateInternalQueries..........false
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- jdbcUrl.........................jdbc:h2:mem:workshopdb;DB_CLOSE_DELAY=-1
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- keepaliveTime...................0
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- leakDetectionThreshold..........0
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- maxLifetime.....................1800000
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- maximumPoolSize.................10
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- metricRegistry..................none
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- metricsTrackerFactory...........none
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- minimumIdle.....................10
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- password........................<masked>
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- poolName........................"HikariPool-1"
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- readOnly........................false
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- registerMbeans..................false
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- scheduledExecutor...............none
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- schema..........................none
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- threadFactory...................internal
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- transactionIsolation............default
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- username........................"sa"
+23:59:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- validationTimeout...............5000
+23:59:35.922 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-1 - Starting...
+23:59:35.934 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource -- Loaded driver with class name org.h2.Driver for jdbcUrl=jdbc:h2:mem:workshopdb;DB_CLOSE_DELAY=-1
+23:59:36.203 [main] INFO com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.205 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-1 - Start completed.
+
+&amp#27;[1m&amp#27;[36m▶ TestKit — Seed users&amp#27;[0m
+────────────────────────────────────────────────────────────
+  Seed                                          23:59:36.307 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+23:59:36.309 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn1: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.340 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=2, active=0, idle=2, waiting=0)
+23:59:36.341 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn2: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.372 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=3, active=0, idle=3, waiting=0)
+23:59:36.373 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn3: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.404 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+23:59:36.406 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn4: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.437 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=5, active=0, idle=5, waiting=0)
+23:59:36.437 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn5: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.468 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=6, active=0, idle=6, waiting=0)
+23:59:36.468 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn6: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.471 [main] DEBUG io.testkit.seed.JdbcSeeder -- Seeding: INSERT INTO users (id, email, name) VALUES (?, ?, ?)
+23:59:36.499 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=7, active=1, idle=6, waiting=0)
+23:59:36.500 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn7: url=jdbc:h2:mem:workshopdb user=SA
+23:59:36.517 [main] DEBUG io.testkit.seed.JdbcSeeder -- Seeding: INSERT INTO users (id, email, name) VALUES (?, ?, ?)
+23:59:36.518 [main] DEBUG io.testkit.seed.JdbcSeeder -- Seeding: INSERT INTO users (id, email, name) VALUES (?, ?, ?)
+&amp#27;[32m✓ PASSED&amp#27;[0m  277ms
+────────────────────────────────────────────────────────────
+&amp#27;[1mSeed users Suite &amp#27;[32mPASSED&amp#27;[0m&amp#27;[0m  |  1 passed, 0 failed  |  total 277ms
+
+23:59:36.531 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+23:59:36.532 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn8: url=jdbc:h2:mem:workshopdb user=SA
+]]></system-out>
+  </testcase>
+  <testcase name="truncateAndRawSql" classname="io.testkit.workshop.Ex06_SeedAndDb" time="0.025">
+    <system-out><![CDATA[
+&amp#27;[1m&amp#27;[36m▶ TestKit — Truncate demo&amp#27;[0m
+────────────────────────────────────────────────────────────
+  Seed                                          &amp#27;[32m✓ PASSED&amp#27;[0m  3ms
+  DB Assertions                                 23:59:36.562 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+23:59:36.562 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - Added connection conn9: url=jdbc:h2:mem:workshopdb user=SA
+&amp#27;[32m✓ PASSED&amp#27;[0m  13ms
+────────────────────────────────────────────────────────────
+&amp#27;[1mTruncate demo Suite &amp#27;[32mPASSED&amp#27;[0m&amp#27;[0m  |  2 passed, 0 failed  |  total 18ms
+
+]]></system-out>
+  </testcase>
+  <testcase name="dbBuilderAssertions" classname="io.testkit.workshop.Ex06_SeedAndDb" time="0.016">
+    <system-out><![CDATA[
+&amp#27;[1m&amp#27;[36m▶ TestKit — DB assertions&amp#27;[0m
+────────────────────────────────────────────────────────────
+  DB Assertions                                 &amp#27;[32m✓ PASSED&amp#27;[0m  11ms
+────────────────────────────────────────────────────────────
+&amp#27;[1mDB assertions Suite &amp#27;[32mPASSED&amp#27;[0m&amp#27;[0m  |  1 passed, 0 failed  |  total 11ms
+
+]]></system-out>
+  </testcase>
+  <testcase name="seedThenDbInSequence" classname="io.testkit.workshop.Ex06_SeedAndDb" time="0.078">
+    <system-out><![CDATA[
+&amp#27;[1m&amp#27;[36m▶ TestKit — Seed then verify&amp#27;[0m
+────────────────────────────────────────────────────────────
+  Seed 2 users                                  23:59:36.593 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+23:59:36.658 [main] DEBUG io.testkit.seed.JdbcSeeder -- Seeding: INSERT INTO users (id, email, name) VALUES (?, ?, ?)
+23:59:36.659 [main] DEBUG io.testkit.seed.JdbcSeeder -- Seeding: INSERT INTO users (id, email, name) VALUES (?, ?, ?)
+&amp#27;[32m✓ PASSED&amp#27;[0m  72ms
+  Verify users inserted                         &amp#27;[32m✓ PASSED&amp#27;[0m  1ms
+────────────────────────────────────────────────────────────
+&amp#27;[1mSeed then verify Suite &amp#27;[32mPASSED&amp#27;[0m&amp#27;[0m  |  2 passed, 0 failed  |  total 73ms
+
+]]></system-out>
+  </testcase>
+  <testcase name="dataFactoryGeneratesUniqueRows" classname="io.testkit.workshop.Ex06_SeedAndDb" time="0.044">
+    <system-out><![CDATA[
+Row 1: {id=ae85de66-b6ad-4e65-95dc-f4389f139ace, email=louetta.beatty@gmail.com, name=Scotty Schoen}
+Row 2: {id=b2c06f64-5bf5-4191-8dab-ced0e2f33024, email=salina.luettgen@hotmail.com, name=Nancey Hessel}
+]]></system-out>
+  </testcase>
+  <testcase name="extractFromDbIntoContext" classname="io.testkit.workshop.Ex06_SeedAndDb" time="0.005">
+    <system-out><![CDATA[
+&amp#27;[1m&amp#27;[36m▶ TestKit — Extract from DB&amp#27;[0m
+────────────────────────────────────────────────────────────
+  DB Assertions                                 &amp#27;[32m✓ PASSED&amp#27;[0m  1ms
+  Check extracted userId                        
+Extracted userId from DB: U-99
+&amp#27;[32m✓ PASSED&amp#27;[0m  0ms
+────────────────────────────────────────────────────────────
+&amp#27;[1mExtract from DB Suite &amp#27;[32mPASSED&amp#27;[0m&amp#27;[0m  |  2 passed, 0 failed  |  total 2ms
+
+]]></system-out>
+  </testcase>
+</testsuite>
