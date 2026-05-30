@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: io.testkit.workshop.Ex07_FullChain
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.170 s -- in io.testkit.workshop.Ex07_FullChain

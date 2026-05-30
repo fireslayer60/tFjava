@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: io.testkit.workshop.Ex02_MockAndApi
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.433 s -- in io.testkit.workshop.Ex02_MockAndApi

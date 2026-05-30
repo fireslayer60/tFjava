@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: io.testkit.workshop.Ex05_ContractTesting
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s -- in io.testkit.workshop.Ex05_ContractTesting
