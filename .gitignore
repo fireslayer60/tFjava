@@ -1,0 +1,6 @@
+target/
+*.class
+*.jar
+!testkit-all/testkit-all.jar
+.idea/
+*.iml

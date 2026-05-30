@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(code --list-extensions)",
+      "Bash(ls ~/.m2/repository/io/testkit 2>/dev/null || echo \"NOT FOUND\")",
+      "Read(//c/Users/krish/.m2/repository/io/testkit/**)",
+      "Bash(mvn compile *)",
+      "Bash(mvn test-compile *)",
+      "Bash(grep -i 'error\\\\|warn\\\\|test\\\\|codelens\\\\|Ex02' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/output_logging_20260531T021914/2-Java.log)",
+      "Bash(grep -i 'error\\\\|exception\\\\|preview\\\\|workshop' '__TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/output_logging_20260531T021914/4-Language Support for Java.log')",
+      "Bash(grep -i 'java.test\\\\|vscjava\\\\|test.*runner\\\\|error\\\\|activat' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/exthost.log)",
+      "Bash(grep -r 'provider FAILED\\\\|redhat.java.*error\\\\|java.*crash' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/)",
+      "Bash(grep -v \".log:$\")",
+      "Bash(taskkill /F /IM java.exe)",
+      "Bash(rm -rf \"/c/Users/krish/OneDrive/Desktop/java/tFjava/testkit-workshop/target\" && echo \"deleted\" || echo \"failed\")",
+      "Bash(grep -i 'error\\\\|provider FAILED\\\\|java.test\\\\|activat.*test' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/exthost.log)",
+      "Bash(grep -i 'codeLens\\\\|codelens\\\\|activation\\\\|onLanguage\\\\|junit' __TRACKED_VAR__/.vscode/extensions/vscjava.vscode-java-test-0.45.0/package.json)",
+      "Bash(grep -i 'codelens\\\\|junit\\\\|testcontroller\\\\|test.*provider' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/renderer.log)",
+      "Bash(grep -i 'lightweight\\\\|standard\\\\|serverMode\\\\|server.mode' __TRACKED_VAR__/AppData/Roaming/Code/User/workspaceStorage/b3b8774f647e7c038cdf62bff5f0fb64/redhat.java/jdt_ws/.metadata/.log)",
+      "Bash(grep -r 'serverMode\\\\|java.server.launchMode\\\\|lightweight' __TRACKED_VAR__/AppData/Roaming/Code/User/settings.json __TRACKED_VAR__/OneDrive/Desktop/java/tFjava/.vscode/settings.json)",
+      "Bash(grep -i 'ExampleTest\\\\|workshop\\\\|test-classes\\\\|testkit' __TRACKED_VAR__/AppData/Roaming/Code/User/workspaceStorage/b3b8774f647e7c038cdf62bff5f0fb64/redhat.java/jdt_ws/.metadata/.log)",
+      "Bash(grep 'projects\\\\|projectUri\\\\|import' __TRACKED_VAR__/AppData/Roaming/Code/User/workspaceStorage/b3b8774f647e7c038cdf62bff5f0fb64/redhat.java/jdt_ws/.metadata/.log)",
+      "Bash(grep -i 'provider FAILED\\\\|stopping.*timed\\\\|test.*fail\\\\|error' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/exthost.log)",
+      "Bash(grep '024[0-9]\\\\|activat.*test\\\\|vscode-java-test\\\\|java.test' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/exthost.log)",
+      "Bash(grep -A 30 '\"java.test.config\"' __TRACKED_VAR__/.vscode/extensions/vscjava.vscode-java-test-0.45.0/package.json)",
+      "Bash(grep '02:4[1-9]\\\\|02:[5-9]' __TRACKED_VAR__/AppData/Roaming/Code/logs/20260531T021912/window1/exthost/exthost.log)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\krish\\OneDrive\\Desktop\\java\\tFjava\\testkit-workshop\\target"
+    ]
+  }
+}

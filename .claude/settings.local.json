@@ -11,7 +11,11 @@
       "Bash(mvn test *)",
       "Bash(mvn dependency:tree -pl testkit-mock)",
       "Bash(mkdir -p \"c:/Users/krish/OneDrive/Desktop/java/tFjava/testkit-all/src/test/resources\")",
-      "Bash(mvn dependency:tree -pl testkit-all)"
+      "Bash(mvn dependency:tree -pl testkit-all)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git tag *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\krish\\OneDrive\\Desktop\\java\\tFjava\\testkit-all\\src\\test"
