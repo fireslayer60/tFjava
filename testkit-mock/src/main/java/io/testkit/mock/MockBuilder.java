@@ -7,7 +7,9 @@ import io.testkit.core.TestKitContext;
 import io.testkit.core.TestKitException;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -72,7 +74,7 @@ public final class MockBuilder {
         private String method;
         private String urlPattern;
         private String bodyContains;
-        private String contentType = "application/json";
+        private Map<String, String> responseHeaders = new LinkedHashMap<>(Map.of("Content-Type", "application/json"));
         private int statusCode = 200;
         private String responseBody = "{}";
         private long delayMs = 0;
@@ -85,13 +87,15 @@ public final class MockBuilder {
         public StubBuilder DELETE(String url) { this.method = "DELETE"; this.urlPattern = url; return this; }
         public StubBuilder PATCH(String url)  { this.method = "PATCH";  this.urlPattern = url; return this; }
 
-        public StubBuilder withBody(String contains) { this.bodyContains = contains; return this; }
-        public StubBuilder contentType(String ct)    { this.contentType = ct; return this; }
-        public StubBuilder delay(long ms)            { this.delayMs = ms; return this; }
+        public StubBuilder withBody(String contains)          { this.bodyContains = contains; return this; }
+        public StubBuilder header(String name, String value) { responseHeaders.put(name, value); return this; }
+        public StubBuilder contentType(String ct)             { return header("Content-Type", ct); }
+        public StubBuilder delay(long ms)                     { this.delayMs = ms; return this; }
 
-        public StubBuilder willReturn(int status, String body) {
+        public StubBuilder willReturn(int status,Map<String, String>headers, String body) {
             this.statusCode = status;
             this.responseBody = body;
+            this.responseHeaders = headers;
             return this;
         }
 
@@ -107,8 +111,8 @@ public final class MockBuilder {
 
             var responseDefBuilder = aResponse()
                     .withStatus(statusCode)
-                    .withHeader("Content-Type", contentType)
                     .withBody(responseBody);
+            responseHeaders.forEach(responseDefBuilder::withHeader);
 
             if (delayMs > 0) responseDefBuilder.withFixedDelay((int) delayMs);
 
