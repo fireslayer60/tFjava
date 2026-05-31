@@ -1,4 +1,4 @@
 jdk:
   - openjdk21
 install:
-  - mvn install -DskipTests --no-transfer-progress
+  - ./mvnw install -DskipTests --no-transfer-progress
