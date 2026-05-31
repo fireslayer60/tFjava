@@ -74,7 +74,7 @@ public final class MockBuilder {
         private String method;
         private String urlPattern;
         private String bodyContains;
-        private Map<String, String> responseHeaders = new LinkedHashMap<>(Map.of("Content-Type", "application/json"));
+        private final Map<String, String> responseHeaders = new LinkedHashMap<>(Map.of("Content-Type", "application/json"));
         private int statusCode = 200;
         private String responseBody = "{}";
         private long delayMs = 0;
@@ -92,10 +92,14 @@ public final class MockBuilder {
         public StubBuilder contentType(String ct)             { return header("Content-Type", ct); }
         public StubBuilder delay(long ms)                     { this.delayMs = ms; return this; }
 
-        public StubBuilder willReturn(int status,Map<String, String>headers, String body) {
+        public StubBuilder willReturn(int status, Map<String, String> headers, String body) {
             this.statusCode = status;
             this.responseBody = body;
-            this.responseHeaders = headers;
+            this.responseHeaders.clear();
+            if (headers != null) {
+                this.responseHeaders.putAll(headers);
+            }
+            this.responseHeaders.putIfAbsent("Content-Type", "application/json");
             return this;
         }
 
