@@ -2,6 +2,9 @@ package io.testkit;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 class DslIntegrationTest {
 
     @Test
@@ -25,12 +28,12 @@ class DslIntegrationTest {
                         .port(9191)
                         .stub(s -> s
                                 .GET("/users/1")
-                                .willReturn(200, """
+                                .willReturn(200, Map.of("Content-Type", "application/json"),"""
                                         {"id":"1","name":"Alice","teamId":"t42"}
                                         """))
                         .stub(s -> s
                                 .GET("/teams/t42")
-                                .willReturn(200, """
+                                .willReturn(200, Map.of("Content-Type", "application/json"), """
                                         {"id":"t42","name":"Engineering"}
                                         """)))
 

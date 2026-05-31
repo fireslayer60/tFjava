@@ -13,6 +13,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -55,8 +57,8 @@ class Ex02_MockAndApi {
         TestKitResult result = TestKitDsl.test("Order creation")
                 .config(c->c.baseUrl("http://localhost:" +curPort))
                 .mock(m->m.contextKey("orderUrl").port(Integer.parseInt(curPort))
-                        .stub(s->s.POST("/api/orders").willReturn(201,"{\"id\":\"ORD-123\",\"status\":\"PENDING\"}"))
-                        .stub(s->s.GET("/api/orders/ORD-123").willReturn(200,"{\"id\":\"ORD-123\",\"status\":\"PENDING\",\"items\":2}")))
+                        .stub(s->s.POST("/api/orders").willReturn(201, Map.of("Content-Type", "application/json"),"{\"id\":\"ORD-123\",\"status\":\"PENDING\"}"))
+                        .stub(s->s.GET("/api/orders/ORD-123").willReturn(200, Map.of("Content-Type", "application/json"),"{\"id\":\"ORD-123\",\"status\":\"PENDING\",\"items\":2}")))
                 .api(
                         a -> a.POST("/api/orders")
                               .json("{\"productId\":\"P-1\",\"qty\":2}")
@@ -129,7 +131,7 @@ class Ex02_MockAndApi {
                 .step(new MockStep(m -> m
                         .contextKey("mockUrl")
                         .stub(s -> s.GET("/health")
-                                   .willReturn(200, "{\"status\":\"UP\"}"))))
+                                   .willReturn(200, Map.of("Content-Type", "application/json"), "{\"status\":\"UP\"}"))))
 
                 // ApiStep: reads base URL from context at execution time
                 .step(new io.testkit.core.TestKitStep() {
