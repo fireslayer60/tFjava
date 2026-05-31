@@ -100,6 +100,11 @@
                 <artifactId>testkit-queue</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.testkit</groupId>
+                <artifactId>testkit-all</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- Jetty 11 — pinned to prevent Spring Boot BOM from overriding to Jetty 12 (incompatible with WireMock 3.x) -->
             <dependency>

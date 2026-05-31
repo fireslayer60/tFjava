@@ -5,8 +5,10 @@ import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import io.testkit.api.ApiConfig;
 import io.testkit.api.ApiStep;
 import io.testkit.core.TestKit;
+import io.testkit.core.TestKitContext;
 import io.testkit.core.TestKitResult;
 import io.testkit.mock.MockStep;
+import io.testkit.TestKitDsl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,21 +50,23 @@ class Ex02_MockAndApi {
     @Test
     void apiBuilderBasics() {
         // Stub: POST /api/orders -> 201
-        stubFor(post("/api/orders")
-                .willReturn(aResponse().withStatus(201)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody("{\"id\":\"ORD-123\",\"status\":\"PENDING\"}")));
+        String curPort = "5002";
 
-        ApiConfig cfg = ApiConfig.builder().baseUrl(baseUrl).build();
-
-        TestKitResult result = TestKit.test("Order creation")
-                .step(new ApiStep("POST /api/orders",
+        TestKitResult result = TestKitDsl.test("Order creation")
+                .config(c->c.baseUrl("http://localhost:" +curPort))
+                .mock(m->m.contextKey("orderUrl").port(Integer.parseInt(curPort))
+                        .stub(s->s.POST("/api/orders").willReturn(201,"{\"id\":\"ORD-123\",\"status\":\"PENDING\"}"))
+                        .stub(s->s.GET("/api/orders/ORD-123").willReturn(200,"{\"id\":\"ORD-123\",\"status\":\"PENDING\",\"items\":2}")))
+                .api(
                         a -> a.POST("/api/orders")
                               .json("{\"productId\":\"P-1\",\"qty\":2}")
                               .expect(201)
                               .assertJsonPath("$.status", "PENDING")
-                              .assertJsonPathPresent("$.id"),
-                        cfg))
+                              .assertJsonPathPresent("$.id").extract("orderId","$.id"))
+                .api(a -> a
+                        .GET("/api/orders/{id}")
+                        .pathParam("id", ctx -> ctx.get("orderId"))  // resolved after previous step ran
+                        .expect(200))
                 .run();
 
         assertTrue(result.passed(), "POST should 201 and assertions should pass");

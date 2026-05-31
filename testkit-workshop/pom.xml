@@ -14,38 +14,10 @@
     <name>TestKit Workshop — Hands-On Exercises</name>
 
     <dependencies>
-        <!-- All TestKit modules -->
+        <!-- All TestKit modules via the unified facade -->
         <dependency>
             <groupId>io.testkit</groupId>
-            <artifactId>testkit-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-mock</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-load</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-contract</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-seed</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.testkit</groupId>
-            <artifactId>testkit-db</artifactId>
+            <artifactId>testkit-all</artifactId>
         </dependency>
 
         <!-- Test runner -->
