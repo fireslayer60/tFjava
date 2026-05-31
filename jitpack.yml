@@ -1,4 +1,6 @@
 jdk:
   - openjdk21
+before_install:
+  - chmod +x ./mvnw
 install:
   - ./mvnw install -DskipTests --no-transfer-progress
