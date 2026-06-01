@@ -5,11 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * EXERCISE 1 — Core engine: TestKitContext, custom TestKitStep, StepResult, failFast.
+ * EXERCISE 1 — Core engine: TestKitContext, custom TestKitStep, FnStep, StepResult, failFast.
  *
  * Goal: understand how the runner loops through steps, passes a shared context,
  * and collects results. No HTTP, no DB, no external infra needed.
@@ -152,6 +153,89 @@ class Ex01_CoreContextAndCustomStep {
 
         // ctx.get on a missing key throws with a helpful message listing available keys
         assertThrows(TestKitException.class, () -> ctx.get("email"));
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // FnStep — inline functions without a dedicated step class
+    // ─────────────────────────────────────────────────────────────────────────
+
+    @Test
+    void fnStepRunnable() {
+        // .fn(name, Runnable) — no context needed; ideal for setup/teardown or
+        // utility calls that don't interact with shared state.
+        AtomicInteger counter = new AtomicInteger(0);
+
+        TestKitResult result = TestKit.test("Inline Runnable")
+                .fn("increment counter", counter::incrementAndGet)
+                .fn("increment counter again", counter::incrementAndGet)
+                .run();
+
+        assertTrue(result.passed());
+        assertEquals(2, counter.get(), "Both fn steps should have run");
+    }
+
+    @Test
+    void fnStepWithContext() {
+        // .fn(name, Action) — receives the shared TestKitContext so you can
+        // read extracted values from earlier steps or write new ones.
+        TestKitResult result = TestKit.test("Inline context-aware fn")
+                .fn("populate context", ctx -> {
+                    ctx.put("tenantId", "T-42");
+                    ctx.put("role", "ADMIN");
+                })
+                .fn("assert context values", ctx -> {
+                    String tenant = ctx.get("tenantId");
+                    String role   = ctx.get("role");
+                    if (!"T-42".equals(tenant) || !"ADMIN".equals(role)) {
+                        throw new AssertionError("Unexpected context: tenant=" + tenant + " role=" + role);
+                    }
+                })
+                .run();
+
+        assertTrue(result.passed(), "Both fn steps should pass");
+        assertEquals(2, result.passCount());
+    }
+
+    @Test
+    void fnStepCheckedExceptionBecomesFailure() {
+        // FnStep.Action may throw any checked exception.
+        // The step catches it and converts it to a FAILED StepResult —
+        // the suite does NOT throw; you inspect the result normally.
+        TestKitResult result = TestKit.test("Fn checked exception")
+                .config(c -> c.failFast(false))
+                .fn("throw checked exception", ctx -> {
+                    throw new java.io.IOException("simulated IO failure");
+                })
+                .fn("this still runs (failFast=false)", ctx -> ctx.put("ran", true))
+                .run();
+
+        assertFalse(result.passed());
+        assertEquals(StepResult.Status.FAILED, result.steps().get(0).status());
+        assertEquals(StepResult.Status.PASSED, result.steps().get(1).status());
+        assertTrue(result.steps().get(0).detail().contains("IOException"));
+    }
+
+    @Test
+    void fnStepVsCustomStep() {
+        // Comparison: the custom-step class above (GenerateOrderIdStep) does exactly
+        // the same work as this single .fn() call. Use custom steps only when the
+        // logic is complex enough to deserve its own named class; otherwise .fn() is
+        // cleaner and keeps the intent right where you read the pipeline.
+        TestKitResult result = TestKit.test("fn replaces inline anonymous step")
+                .fn("Generate order ID", ctx -> {
+                    ctx.put("orderId", "ORD-" + System.currentTimeMillis());
+                    ctx.put("userId", 42L);
+                })
+                .fn("Validate order ID", ctx -> {
+                    String orderId = ctx.get("orderId");
+                    if (!orderId.startsWith("ORD-")) {
+                        throw new AssertionError("Expected orderId to start with ORD-, got: " + orderId);
+                    }
+                })
+                .run();
+
+        assertTrue(result.passed());
+        assertEquals(2, result.passCount());
     }
 
     @Test

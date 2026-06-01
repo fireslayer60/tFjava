@@ -148,6 +148,39 @@ ctx.has("key");                     // boolean check
 ctx.resolve(ctx -> ctx.get("key")); // late-binding: lambda runs at execution time
 ```
 
+**Inline function steps (`fn`):**
+
+For logic that doesn't justify a dedicated step class, `.fn()` wraps any Java lambda directly into the pipeline:
+
+```java
+TestKit.test("Order flow")
+    // Plain Runnable — no context needed
+    .fn("clear Redis cache", () -> redisClient.flushDb())
+
+    // Context-aware — read/write shared state between steps
+    .fn("resolve tenant", ctx -> {
+        String id = tenantService.lookup("acme");
+        ctx.put("tenantId", id);
+    })
+
+    // Use the extracted value in a later step
+    .api("fetch tenant", a -> a
+        .GET("/tenants/{id}")
+        .pathParam("id", ctx -> ctx.get("tenantId"))
+        .expect(200))
+
+    // Assertion step — any thrown exception (checked or AssertionError) → FAILED
+    .fn("verify audit log", ctx -> {
+        String orderId = ctx.get("orderId");
+        assertThat(auditLog.contains(orderId)).isTrue();
+    })
+    .runAndAssert();
+```
+
+`FnStep.Action` is a `@FunctionalInterface` that may throw any checked exception — no need to wrap in `try/catch`. Use `.fn()` for setup, teardown, custom assertions, or utility calls; write a full `TestKitStep` class only when the logic is complex enough to deserve one.
+
+---
+
 **Reporters:**
 
 ```java
@@ -545,6 +578,11 @@ TestKitDsl.test("Order Placement E2E")
         .expect(200)
         .assertJsonPath("$.status", "PENDING"))
 
+    // 4b. Inline logic that reads the extracted ID — no custom step class needed
+    .fn("tag order for audit", ctx -> {
+        auditLog.record(ctx.get("orderId"), "placed");
+    })
+
     // 5. Assert it was persisted to the database
     .db(d -> d
         .dataSource(dataSource)
@@ -627,13 +665,13 @@ The `testkit-workshop` module contains eight annotated exercises:
 
 | Exercise | What it covers |
 |---|---|
-| `Ex01_CoreContextAndCustomStep` | Context propagation, custom steps, failFast |
+| `Ex01_CoreContextAndCustomStep` | Context propagation, custom steps, inline `fn()` steps, failFast |
 | `Ex02_MockAndApi` | WireMock stubs, API assertions, extract + late binding |
 | `Ex03_SecurityProbes` | Each built-in probe, custom probe SPI |
 | `Ex04_LoadTesting` | LoadRunner, LoadMetrics, Threshold SLOs |
 | `Ex05_ContractTesting` | Consumer defines contract, provider verifies |
 | `Ex06_SeedAndDb` | DataFactory, SeedBuilder, DbBuilder |
-| `Ex07_FullChain` | All modules combined in one pipeline |
+| `Ex07_FullChain` | All modules combined; `fn()` replacing an anonymous step mid-chain |
 
 Run a single exercise:
 

@@ -16,24 +16,26 @@ import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
 import java.sql.Statement;
-import java.time.Duration;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * EXERCISE 7 — The full chain: Mock → Seed → API → DB → Security.
+ * EXERCISE 7 — The full chain: Mock → Seed → API → fn → DB → Security.
  *
  * This simulates a realistic e-commerce "place order" flow:
  *
- *   Step 1: MockStep   — start WireMock as a fake payment service
- *   Step 2: SeedStep   — insert a test user into H2
- *   Step 3: ApiStep    — POST /api/orders (against WireMock, extract orderId)
- *   Step 4: ApiStep    — GET /api/orders/{orderId} using extracted ID
- *   Step 5: DbStep     — assert order row exists in H2
+ *   Step 1: SeedStep     — insert a test user into H2
+ *   Step 2: ApiStep      — POST /api/orders (against WireMock, extract orderId)
+ *   Step 3: ApiStep      — GET /api/orders/{orderId} using extracted ID
+ *   Step 4: FnStep (.fn) — persist the order to H2 using the extracted orderId
+ *   Step 5: DbStep       — assert order row exists in H2
  *   Step 6: SecurityStep — scan for SQL injection and auth bypass issues
  *
- * All steps share ONE TestKitContext. Values written in step 3 are read in step 4.
+ * Step 4 shows how .fn() replaces a verbose anonymous TestKitStep inner class
+ * when the logic is too simple to deserve its own named class.
+ *
+ * All steps share ONE TestKitContext. Values written in step 2 are read in steps 3 and 4.
  *
  * Run: mvn test -pl testkit-workshop -Dtest=Ex07_FullChain
  */
@@ -172,20 +174,13 @@ class Ex07_FullChain {
                         .assertJsonPath("$.status", "PENDING"),
                         apiCfg))
 
-                // STEP 4 — Insert order into H2 (simulating what the real service would do)
-                //          then assert DB state with DbStep
-                .step(new TestKitStep() {
-                    @Override public String name() { return "Persist order to DB (simulated)"; }
-
-                    @Override
-                    public StepResult execute(TestKitContext ctx) {
-                        String orderId = ctx.get("orderId");
-                        seeder.execute(
-                                "INSERT INTO orders (id, user_id, status, total) VALUES (?,?,?,?)",
-                                orderId, "SEEDED-USER", "PENDING", 49.99);
-                        return StepResult.passed(name(), Duration.ZERO)
-                                .detail("Inserted order " + orderId).build();
-                    }
+                // STEP 4 — Insert order into H2 (simulating what the real service would do).
+                //          .fn() reads orderId from context — no custom step class needed.
+                .fn("Persist order to DB (simulated)", ctx -> {
+                    String orderId = ctx.get("orderId");
+                    seeder.execute(
+                            "INSERT INTO orders (id, user_id, status, total) VALUES (?,?,?,?)",
+                            orderId, "SEEDED-USER", "PENDING", 49.99);
                 })
 
                 // STEP 5 — DB assertions: verify order row exists with correct status

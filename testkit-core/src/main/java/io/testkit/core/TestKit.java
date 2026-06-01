@@ -62,6 +62,18 @@ public final class TestKit {
         return this;
     }
 
+    // ── Inline function steps ─────────────────────────────────────────────────
+
+    /** Run any context-aware function as a named step. */
+    public TestKit fn(String name, FnStep.Action action) {
+        return step(new FnStep(name, action));
+    }
+
+    /** Run a plain {@link Runnable} as a named step (no context access needed). */
+    public TestKit fn(String name, Runnable runnable) {
+        return step(new FnStep(name, runnable));
+    }
+
     // ── Reporting ────────────────────────────────────────────────────────────
 
     public TestKit reporter(TestKitReporter reporter) {

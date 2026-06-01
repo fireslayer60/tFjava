@@ -121,6 +121,20 @@ public final class TestKitDsl {
         return this;
     }
 
+    // ── Inline function steps ─────────────────────────────────────────────────
+
+    /** Run any context-aware function as a named step. */
+    public TestKitDsl fn(String name, io.testkit.core.FnStep.Action action) {
+        kit.fn(name, action);
+        return this;
+    }
+
+    /** Run a plain {@link Runnable} as a named step (no context access needed). */
+    public TestKitDsl fn(String name, Runnable runnable) {
+        kit.fn(name, runnable);
+        return this;
+    }
+
     // ── Seed ─────────────────────────────────────────────────────────────────
 
     public TestKitDsl seed(Consumer<io.testkit.seed.SeedBuilder> config) {

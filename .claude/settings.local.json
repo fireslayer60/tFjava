@@ -15,7 +15,8 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git tag *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "PowerShell(Get-ChildItem -Recurse -Directory | Select-Object -ExpandProperty FullName | %{ $_ -replace [regex]::Escape\\(\"C:\\\\Users\\\\krish\\\\OneDrive\\\\Desktop\\\\java\\\\tFjava\"\\), \".\" } | Sort-Object)"
     ],
     "additionalDirectories": [
       "c:\\Users\\krish\\OneDrive\\Desktop\\java\\tFjava\\testkit-all\\src\\test"
